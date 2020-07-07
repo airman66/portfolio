@@ -1,0 +1,141 @@
+doctype html
+html(lang="ru")
+    head
+        link(rel="icon" type="image/ico" href="/images/favicon.ico")
+        link(href="https://fonts.googleapis.com/css?family=Montserrat:200,300,300i,400,700&display=swap" rel="stylesheet")
+        link(rel="stylesheet" href="css/style.css")
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        title=name
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+    body
+        // Header
+        header.header
+            .container
+                .header__inner
+                    .user
+                        .user__avatar
+                            img(src=photo alt="Моя фотография" title="Я")
+                        .user__content
+                            .user__name=name
+                            .user__prof=profession
+                    nav#nav.nav
+                        a.nav__link(href="#intro") Главная
+                        a.nav__link(href="/reviews") Отзывы
+                        a.nav__link(href="#works") Портфолио
+                        a.nav__link(href="#about") Обо мне
+                        a.nav__link.nav__link--btn(href="#" data-modal="#modal_hire_me") Связаться
+                    button#navToggle.burger(type="button")
+                        img.burger__icon(src="images/burger.svg" alt="")
+        // Intro
+        section#intro.intro
+            .container
+                .intro__inner
+                    .intro__content
+                        h2.intro__subtitle Добрый день, я
+                        h1.intro__title=name
+                        .intro__text=profession
+                        .social
+                            each profile in profiles
+                                a.social__link(href=profile.link target="_blank" title=profile.prompt)
+                                    img(src=profile.icon alt=profile.prompt)
+                        a.btn(href="#" data-modal="#modal_hire_me") Связаться
+                        button.btn(type="button" data-modal="#modal_resume") Моё резюме
+                // /.intro__inner
+            // /.container
+        // Works
+        #works.works
+            .container
+                h2.text-center=`Портфолио (${works.length})`
+                #portfolio.portfolio
+                    each work, index in works
+                        .portfolio__col
+                            a(href=`/work/${index + 1}`).tdn
+                                .work
+                                    img.work__image(src=work.image alt=work.name)
+                                    .work__content
+                                        .work__cat=`category: ${work.category}`
+                                        .work__title=work.name
+                                            time.work__date=work.year
+                // /.portfolio
+            // /.container
+        // /.works
+        // About
+        section#about.about
+            .container
+                .about__inner
+                    .about__content
+                        h3.about__title Обо мне
+                        h2.about__bigtitle Кто я
+                        .about__text !{about}
+                        a.btn(href="#" data-modal="#modal_hire_me") Связаться
+                        button.btn(type="button" data-modal="#modal_resume") Моё резюме
+        // Reviews
+        a(href="/reviews" title="Все отзывы").tdn
+            .reviews.reviews--last
+                .container
+                    .reviews__item
+                        .reviews__text
+                            p=randomReview.text
+                        .reviews__author
+                            .reviews__name=randomReview.author
+        // Footer
+        footer.footer
+            .container
+                .footer__inner
+                    .footer__credits
+                        .footer__copyright=copyright
+                    // /.footer__credits
+                    nav.footer__nav
+                        a.footer__nav-link(href="#intro") Главная
+                        a.footer__nav-link(href="/reviews") Отзывы
+                        a.footer__nav-link(href="#works") Портфолио
+                        a.footer__nav-link(href="#about") Обо мне
+                        a.footer__nav-link.footer__nav-link--btn(href="#" data-modal="#modal_hire_me") Связаться
+                // /.footer__inner
+            // /.container
+        // Modals
+        #modal_resume.modal
+            .modal__dialog
+                button.modal__close(type="button" data-close="")
+                    img(src="images/close.svg" width="34" alt="Close")
+                .modal__content
+                    h3.modal__title.resume-title.text-center Резюме
+                    | !{resume}
+                    ul
+                        each technology in technologies
+                            li=technology.name
+                    .text-center
+                        a.btn(href="#" data-modal="#modal_hire_me") Связаться
+                // /.modal__content
+            // /.modal__dialog
+        // /.modal
+        #modal_hire_me.modal
+            .modal__dialog.modal__dialog--sm
+                button.modal__close(type="button" data-close="")
+                    img(src="images/close.svg" width="34" alt="Close")
+                .contact
+                    .contact__left
+                        h3.modal__title.mb-0.contact__header Связаться
+                        h4.modal__subtitle Если хотите обратиться ко мне, пишите на почту:
+                        ul.contact__info
+                            li.contact__info-item
+                                .contact__info-icon &#9993;
+                                | !{email}
+                        form.form(action="/" method="post")
+                            .form__group
+                                label.form__label(for="input-email") Ваш email
+                                input#input-email.form__input(name="email" type="text" placeholder="Введите email")
+                            .form__group
+                                label.form__label(for="input-text") Сообщение
+                                textarea#input-text.form__textarea(name="text" placeholder="Введите сообщение")
+                            .text-right
+                                button.btn(type="submit") Отправить сообщение
+                    // /.contact__left
+                // /.contact
+            // /.modal__dialog
+        // /.modal
+        // JS
+        script(src="js/nav.js")
+        script(src="js/index.js")

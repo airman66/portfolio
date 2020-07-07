@@ -1,0 +1,35 @@
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        title Админ панель
+        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css", integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk", crossorigin="anonymous")
+    body
+        .container
+            h1.mt-md-5.mt-2 Админ панель
+            h2 Добавить работу
+            form(action="/admin/works/add" method="POST")
+                .form-group
+                    label(for="name") Название проекта
+                    input#name.form-control(name="name" type="text" placeholder="Введите название проекта")
+                .form-group
+                    label(for="description") Описание
+                    textarea#description.form-control(rows=10 style="width: 100%" name="description" placeholder="Введите описание")
+                .form-group
+                    label(for="image") Url картинки
+                    input#image.form-control(name="image" type="text" placeholder="Введите url картинки")
+                .form-group
+                    label(for="workHeading") Заглавие работы (которую сделали вы)
+                    input#workHeading.form-control(name="workHeading" type="text" placeholder="Введите заглавие работы")
+                .form-group
+                    label(for="year") Год
+                    input#year.form-control(name="year" type="text" placeholder="Введите год")
+                .form-group
+                    label(for="category") Категория
+                    input#category.form-control(name="category" value="website" type="text" placeholder="Введите категорию")
+                .form-group
+                    label(for="link") Ссылка
+                    input#link.form-control(name="link" type="text" placeholder="Введите ссылку")
+                button.btn.btn-primary(type="submit") Submit

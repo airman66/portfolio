@@ -1,0 +1,35 @@
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        title Админ панель
+        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css", integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk", crossorigin="anonymous")
+    body
+        .container
+            h1.mt-md-5.mt-2 Админ панель
+            h2 Изменить другое
+            form(action=`/admin/other/edit/` method="POST")
+                .form-group
+                    label(for="name") Имя
+                    input#name.form-control(name="name" value=name type="text" placeholder="Введите имя")
+                .form-group
+                    label(for="about") Обо мне
+                    textarea#about.form-control(rows=15 style="width: 100%" name="about" placeholder="Напишите о себе")=about
+                .form-group
+                    label(for="resume") Резюме
+                    textarea#resume.form-control(rows=15 style="width: 100%" name="resume"  placeholder="Введите url картинки")=resume
+                .form-group
+                    label(for="email") Почта
+                    input#email.form-control(name="email" value=email type="text" placeholder="Введите почту")
+                .form-group
+                    label(for="photo") Url фото
+                    input#photo.form-control(name="photo" value=photo type="text" placeholder="Введите url фото")
+                .form-group
+                    label(for="profession") Профессия
+                    input#profession.form-control(name="profession" value=profession type="text" placeholder="Введите профессию")
+                .form-group
+                    label(for="copyright") Копирайт
+                    input#copyright.form-control(name="copyright" value=copyright type="text" placeholder="Введите копирайт")
+                button.btn.btn-primary(type="submit") Submit

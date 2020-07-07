@@ -1,0 +1,28 @@
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        title Админ панель
+        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css", integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk", crossorigin="anonymous")
+    body
+        .container
+            h1.mt-md-5.mt-2 Админ панель
+            h3 Портфолио
+            a(href="/admin/works/add") Добавить работу
+            each work, index in works
+                .card(style="width: 100%;")
+                    .card-body
+                        h5.card-title=work.name
+                        h6.card-subtitle.mb-2.text-muted=work.workHeading
+                        p.card-text=work.description
+                        p.card-text
+                            span(style="margin-right: 0.25rem") Картинка:
+                            a(href=work.image target="_blank")=work.image
+                        h3.card-text=work.year
+                        h4.card-text=work.category
+                        p.card-text
+                            a(href=work.link target="_blank")=work.link
+                        a.card-link(href=`/admin/works/edit/${index + 1}`) Редактировать
+                        a.card-link(href=`/admin/works/remove/${index + 1}`) Удалить

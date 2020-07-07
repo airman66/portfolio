@@ -1,0 +1,34 @@
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        title Админ панель
+        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css", integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk", crossorigin="anonymous")
+    body
+        .container
+            h1.mt-md-5.mt-2 Админ панель
+            h3 Профили
+            a(href="/admin/other/edit") Редактировать другое
+            p
+                | #[span(style="margin-right: 0.5rem") Имя:]
+                h3.text-break=name
+            p
+                | #[span(style="margin-right: 0.5rem") Профессия:]
+                h4.text-break=profession
+            p
+                | #[span(style="margin-right: 0.5rem") Фото:]
+                h4.text-break=photo
+            p
+                | #[span(style="margin-right: 0.5rem") Резюме:]
+                h4.text-break=resume
+            p
+                | #[span(style="margin-right: 0.5rem") Обо мне:]
+                h4.text-break=about
+            p
+                | #[span(style="margin-right: 0.5rem") Почта:]
+                h4.text-break=email
+            p
+                | #[span(style="margin-right: 0.5rem") Копирайт:]
+                h4.text-break=copyright

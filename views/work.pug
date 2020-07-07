@@ -1,0 +1,64 @@
+doctype html
+html(lang="ru")
+    head
+        link(rel="icon" type="image/ico" href="/images/favicon.ico")
+        link(href="https://fonts.googleapis.com/css?family=Montserrat:200,300,300i,400,700&display=swap" rel="stylesheet")
+        link(rel="stylesheet" href="/css/work.css")
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        title=work.name
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+    body
+        // Header
+        header.header
+            .container
+                .header__inner
+                    .user
+                        .user__avatar
+                            img(src=photo alt="Моя фотография" title="Я")
+                        .user__content
+                            .user__name=name
+                            .user__prof=profession
+                    nav#nav.nav
+                        a.nav__link(href="/") Главная страница
+                        a.nav__link(href="/reviews") Отзывы
+                        a.nav__link(href="/#works") Портфолио
+                        a.nav__link(href="/#about") Обо мне
+                    button#navToggle.burger(type="button")
+                        img.burger__icon(src="/images/burger.svg" alt="burger")
+
+        main
+            .container
+                h1.single-work__title=work.workHeading
+                .single-work
+                    img(src=work.image alt=work.name).single-work__img.img
+                    .single-work__description
+                        p=work.description
+                        p(style="margin-top: 1rem; margin-bottom: 1rem;") Название проекта:
+                            strong(style="font-size: 1.06rem; margin-left: 0.5rem")=work.name
+                        p(style="margin-top: 1rem; margin-bottom: 1rem;") Год:
+                            strong(style="font-size: 1.06rem; margin-left: 0.5rem")=work.year
+                        p(style="margin-top: 1rem; margin-bottom: 1rem;") Категория:
+                            span(style="margin-left: 0.5rem")=work.category
+                    p
+                        .single-work__link
+                            span Ссылка:
+                            a(href=work.link title="Ссылка на работу" target="_blank")=work.link
+        // Footer
+        footer.footer
+            .container
+                .footer__inner
+                    .footer__credits
+                        .footer__copyright=copyright
+                    // /.footer__credits
+                    nav.footer__nav
+                        a.footer__nav-link(href="/") Главная страница
+                        a.footer__nav-link(href="/reviews") Отзывы
+                        a.footer__nav-link(href="/#works") Портфолио
+                        a.footer__nav-link(href="/#about") Обо мне
+                // /.footer__inner
+            // /.container
+
+        // JS
+        script(src="/js/nav.js")

@@ -1,0 +1,51 @@
+@import "vars";
+
+html {
+  font-size: 15px;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: @black;
+
+  @media @mobile {
+    padding-top: 6.25rem;
+  }
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* Block */
+@import "blocks/container";
+@import "blocks/header";
+@import "blocks/user";
+@import "blocks/nav";
+@import "blocks/footer";
+@import "blocks/burger";
+@import "blocks/single-work";
+
+
+/* Helpers */
+@import "helpers";

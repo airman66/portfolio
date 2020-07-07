@@ -1,0 +1,67 @@
+doctype html
+html(lang="ru")
+    head
+        link(rel="icon" type="image/ico" href="/images/favicon.ico")
+        link(href="https://fonts.googleapis.com/css?family=Montserrat:200,300,300i,400,700&display=swap" rel="stylesheet")
+        link(rel="stylesheet" href="/css/reviews.css")
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        title=name
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+    body
+        // Header
+        header.header
+            .container
+                .header__inner
+                    .user
+                        .user__avatar
+                            img(src=photo alt="Моя фотография" title="Я")
+                        .user__content
+                            .user__name=name
+                            .user__prof=profession
+                    nav#nav.nav
+                        a.nav__link(href="/") Главная страница
+                        a.nav__link(href="/reviews") Отзывы
+                        a.nav__link(href="/#works") Портфолио
+                        a.nav__link(href="/#about") Обо мне
+                    button#navToggle.burger(type="button")
+                        img.burger__icon(src="/images/burger.svg" alt="")
+
+        // Heading
+        h1(style="margin-bottom: 2.1rem").text-center=`Все отзывы (${reviews.length})`
+        // Reviews
+        each review, index in reviews
+            if index !== lastIndex
+                .reviews
+                    .container
+                        .reviews__item
+                            .reviews__text
+                                p=review.text
+                            .reviews__author
+                                .reviews__name=review.author
+            else
+                .reviews.reviews--last
+                    .container
+                        .reviews__item
+                            .reviews__text
+                                p=review.text
+                            .reviews__author
+                                .reviews__name=review.author
+        // Footer
+        footer.footer
+            .container
+                .footer__inner
+                    .footer__credits
+                        .footer__copyright=copyright
+                    // /.footer__credits
+                    nav.footer__nav
+                        a.footer__nav-link(href="/") Главная страница
+                        a.footer__nav-link(href="/reviews") Отзывы
+                        a.footer__nav-link(href="/#works") Портфолио
+                        a.footer__nav-link(href="/#about") Обо мне
+                // /.footer__inner
+            // /.container
+
+        // JS
+        script(src="/js/nav.js")
