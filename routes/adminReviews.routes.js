@@ -45,8 +45,8 @@ router.post("/add", async (req, res) => {
             const {token} = req.cookies;
             const verification = await jwt.verify(token, jwtSecret);
             if (verification.adminId) {
-                const {author, text} = req.body;
-                const review = await new Review({text, author});
+                const {author, text, link} = req.body;
+                const review = await new Review({text, author, link});
                 await review.save();
                 return res.redirect("/admin/reviews");
             }
@@ -112,8 +112,8 @@ router.post("/edit/:id", async (req, res) => {
                 const {id} = req.params;
                 const allReviews = await Review.find({});
                 if (allReviews[id - 1]) {
-                    const {author, text} = req.body;
-                    await Review.findOneAndUpdate({_id: allReviews[id - 1]._id}, {text, author});
+                    const {author, text, link} = req.body;
+                    await Review.findOneAndUpdate({_id: allReviews[id - 1]._id}, {text, author, link});
                 }
                 return res.redirect("/admin/reviews");
             }

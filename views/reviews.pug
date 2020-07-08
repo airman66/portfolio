@@ -33,21 +33,23 @@ html(lang="ru")
         // Reviews
         each review, index in reviews
             if index !== lastIndex
-                .reviews
-                    .container
-                        .reviews__item
-                            .reviews__text
-                                p=review.text
-                            .reviews__author
-                                .reviews__name=review.author
+                a(href=review.link title="Ссылка на отзыв" target="_blank")
+                    .reviews
+                        .container
+                            .reviews__item
+                                .reviews__text
+                                    p=review.text
+                                .reviews__author
+                                    .reviews__name=review.author
             else
-                .reviews.reviews--last
-                    .container
-                        .reviews__item
-                            .reviews__text
-                                p=review.text
-                            .reviews__author
-                                .reviews__name=review.author
+                a(href=review.link title="Ссылка на отзыв" target="_blank")
+                    .reviews.reviews--last
+                        .container
+                            .reviews__item
+                                .reviews__text
+                                    p=review.text
+                                .reviews__author
+                                    .reviews__name=review.author
         // Footer
         footer.footer
             .container
