@@ -1,13 +1,6 @@
 doctype html
 html(lang="ru")
     head
-        // Global site tag (gtag.js) - Google Ads: 941245909
-        script(async="" src="https://www.googletagmanager.com/gtag/js?id=AW-941245909")
-        script.
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-941245909');
         link(rel="icon" type="image/ico" href="/images/favicon.ico")
         link(href="https://fonts.googleapis.com/css?family=Montserrat:200,300,300i,400,700&display=swap" rel="stylesheet")
         link(rel="stylesheet" href="/css/work.css")
@@ -25,8 +18,8 @@ html(lang="ru")
                         .user__avatar
                             img(src=photo alt="Моя фотография" title="Я")
                         .user__content
-                            .user__name=name
-                            .user__prof=profession
+                            .user__name.text-break=name
+                            .user__prof.text-break=profession
                     nav#nav.nav
                         a.nav__link(href="/") Главная страница
                         a.nav__link(href="/reviews") Отзывы
@@ -37,27 +30,27 @@ html(lang="ru")
 
         main
             .container
-                h1.single-work__title=work.workHeading
+                h1.single-work__title.text-break=work.workHeading
                 .single-work
                     img(src=work.image alt=work.name).single-work__img.img
                     .single-work__description
-                        p=work.description
-                        p(style="margin-top: 1rem; margin-bottom: 1rem;") Название проекта:
-                            strong(style="font-size: 1.06rem; margin-left: 0.5rem")=work.name
-                        p(style="margin-top: 1rem; margin-bottom: 1rem;") Год:
-                            strong(style="font-size: 1.06rem; margin-left: 0.5rem")=work.year
-                        p(style="margin-top: 1rem; margin-bottom: 1rem;") Категория:
-                            span(style="margin-left: 0.5rem")=work.category
+                        p.text-break=work.description
+                        p.text-break(style="margin-top: 1rem; margin-bottom: 1rem;") Название проекта:
+                            strong.text-break(style="font-size: 1.06rem; margin-left: 0.5rem")=work.name
+                        p.text-break(style="margin-top: 1rem; margin-bottom: 1rem;") Год:
+                            strong.text-break(style="font-size: 1.06rem; margin-left: 0.5rem")=work.year
+                        p.text-break(style="margin-top: 1rem; margin-bottom: 1rem;") Категория:
+                            span.text-break(style="margin-left: 0.5rem")=work.category
                     p
                         .single-work__link
                             span Ссылка:
-                            a(href=work.link title="Ссылка на работу" target="_blank")=work.link
+                            a.text-break(href=work.link title="Ссылка на работу" target="_blank")=work.link
         // Footer
         footer.footer
             .container
                 .footer__inner
                     .footer__credits
-                        .footer__copyright=copyright
+                        .footer__copyright.text-break=copyright
                     // /.footer__credits
                     nav.footer__nav
                         a.footer__nav-link(href="/") Главная страница

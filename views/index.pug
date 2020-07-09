@@ -1,16 +1,6 @@
 doctype html
 html(lang="ru")
     head
-        // Global site tag (gtag.js) - Google Ads: 941245909
-        script(async="" src="https://www.googletagmanager.com/gtag/js?id=AW-941245909")
-        script.
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-941245909');
-        // Event snippet for Website lead conversion page
-        script.
-            gtag('event', 'conversion', {'send_to': 'AW-941245909/7vxeCK2IuNYBENWL6cAD'});
         link(rel="icon" type="image/ico" href="/images/favicon.ico")
         link(href="https://fonts.googleapis.com/css?family=Montserrat:200,300,300i,400,700&display=swap" rel="stylesheet")
         link(rel="stylesheet" href="css/style.css")
@@ -28,8 +18,8 @@ html(lang="ru")
                         .user__avatar
                             img(src=photo alt="Моя фотография" title="Я")
                         .user__content
-                            .user__name=name
-                            .user__prof=profession
+                            .user__name.text-break=name
+                            .user__prof.text-break=profession
                     nav#nav.nav
                         a.nav__link(href="#intro") Главная
                         a.nav__link(href="/reviews") Отзывы
@@ -57,7 +47,7 @@ html(lang="ru")
         // Works
         #works.works
             .container
-                h2.text-center=`Портфолио (${works.length})`
+                h2.text-center.text-break=`Портфолио (${works.length})`
                 #portfolio.portfolio
                     each work, index in works
                         .portfolio__col
@@ -65,9 +55,9 @@ html(lang="ru")
                                 .work
                                     img.work__image(src=work.image alt=work.name)
                                     .work__content
-                                        .work__cat=`category: ${work.category}`
-                                        .work__title=work.name
-                                            time.work__date=work.year
+                                        .work__cat.text-break=`category: ${work.category}`
+                                        .work__title.text-break=work.name
+                                            time.work__date.text-break=work.year
                 // /.portfolio
             // /.container
         // /.works
@@ -76,8 +66,8 @@ html(lang="ru")
             .container
                 .about__inner
                     .about__content
-                        h3.about__title Обо мне
-                        h2.about__bigtitle Кто я
+                        h3.about__title.text-break Обо мне
+                        h2.about__bigtitle.text-break Кто я
                         .about__text !{about}
                         a.btn(href="#" data-modal="#modal_hire_me") Связаться
                         button.btn(type="button" data-modal="#modal_resume") Моё резюме
@@ -87,15 +77,15 @@ html(lang="ru")
                 .container
                     .reviews__item
                         .reviews__text
-                            p=randomReview.text
+                            p.text-break=randomReview.text
                         .reviews__author
-                            .reviews__name=randomReview.author
+                            .reviews__name.text-break=randomReview.author
         // Footer
         footer.footer
             .container
                 .footer__inner
                     .footer__credits
-                        .footer__copyright=copyright
+                        .footer__copyright.text-break=copyright
                     // /.footer__credits
                     nav.footer__nav
                         a.footer__nav-link(href="#intro") Главная
@@ -111,7 +101,7 @@ html(lang="ru")
                 button.modal__close(type="button" data-close="")
                     img(src="images/close.svg" width="34" alt="Close")
                 .modal__content
-                    h3.modal__title.resume-title.text-center Резюме
+                    h3.modal__title.text-break.resume-title.text-center Резюме
                     | !{resume}
                     ul
                         each technology in technologies
@@ -127,8 +117,8 @@ html(lang="ru")
                     img(src="images/close.svg" width="34" alt="Close")
                 .contact
                     .contact__left
-                        h3.modal__title.mb-0.contact__header Связаться
-                        h4.modal__subtitle Если хотите обратиться ко мне, пишите на почту:
+                        h3.modal__title.mb-0.contact__header.text-break Связаться
+                        h4.modal__subtitle.text-break Если хотите обратиться ко мне, пишите на почту:
                         ul.contact__info
                             li.contact__info-item
                                 .contact__info-icon &#9993;
