@@ -1,6 +1,22 @@
 doctype html
 html(lang="ru")
     head
+        // Yandex.Metrika counter
+        script(type="text/javascript").
+            (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+                ym(65503582, "init", {
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    trackHash:true
+                });
+        noscript
+            div
+                img(src="https://mc.yandex.ru/watch/65503582" style="position:absolute; left:-9999px;" alt="")
+        // /Yandex.Metrika counter
         link(rel="icon" type="image/ico" href="/images/favicon.ico")
         link(href="https://fonts.googleapis.com/css?family=Montserrat:200,300,300i,400,700&display=swap" rel="stylesheet")
         link(rel="stylesheet" href="/css/work.css")
@@ -32,7 +48,8 @@ html(lang="ru")
             .container
                 h1.single-work__title.text-break=work.workHeading
                 .single-work
-                    img(src=work.image alt=work.name).single-work__img.img
+                    a.glightbox(href=work.image data-title=work.name data-description=work.description data-desc-position="bottom" data-type="image" data-effect="fade")
+                        img(src=work.image alt=work.name).single-work__img.img
                     .single-work__description
                         p.text-break=work.description
                         p.text-break(style="margin-top: 1rem; margin-bottom: 1rem;") Название проекта:
@@ -61,4 +78,6 @@ html(lang="ru")
             // /.container
 
         // JS
+        script(src="/js/glightbox.js")
         script(src="/js/nav.js")
+        script(src="/js/gallery.js")
