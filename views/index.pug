@@ -18,8 +18,8 @@ html(lang="ru")
                 img(src="https://mc.yandex.ru/watch/65503582" style="position:absolute; left:-9999px;" alt="")
         // /Yandex.Metrika counter
         link(rel="icon" type="image/ico" href="/images/favicon.ico")
-        link(href="https://fonts.googleapis.com/css?family=Montserrat:200,300,300i,400,700&display=swap" rel="stylesheet")
-        link(rel="stylesheet" href="css/style.css")
+        link(data-href="https://fonts.googleapis.com/css?family=Montserrat:200,300,300i,400,700&display=swap" type="font" rel="stylesheet")
+        link(rel="stylesheet" type="style" data-href="/css/style.css")
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
         meta(http-equiv="X-UA-Compatible" content="ie=edge")
@@ -155,6 +155,7 @@ html(lang="ru")
             // /.modal__dialog
         // /.modal
         // JS
+        script(src="/js/lazy-style-and-fonts.js")
         script(src="/js/nav.js")
         script(src="/js/lazy.js")
         script(src="/js/lazy-bg.js")
