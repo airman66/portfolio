@@ -24,7 +24,9 @@ html(lang="ru")
         meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
         meta(http-equiv="X-UA-Compatible" content="ie=edge")
         title=name
-        script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+        script(src="/js/jquery.min.js")
+        script(src="/js/jquery.lazy.min.js")
+        script(src="/js/jquery.lazy.script.min.js")
     body
         // Header
         header.header
@@ -32,7 +34,7 @@ html(lang="ru")
                 .header__inner
                     .user
                         .user__avatar
-                            img(src=photo alt="Моя фотография" title="Я")
+                            img.lazy(data-src=photo alt="Моя фотография" title="Я")
                         .user__content
                             .user__name.text-break=name
                             .user__prof.text-break=profession
@@ -43,11 +45,11 @@ html(lang="ru")
                         a.nav__link(href="#about") Обо мне
                         a.nav__link.nav__link--btn(href="#" data-modal="#modal_hire_me") Связаться
                     button#navToggle.burger(type="button")
-                        img.burger__icon(src="images/burger.svg" alt="")
+                        img.burger__icon(src="/images/burger.svg" alt="")
         // Intro
         section#intro.intro
             .container
-                .intro__inner
+                .intro__inner.lazy-bg(data-src="/images/symbols.png")
                     .intro__content
                         h2.intro__subtitle Добрый день, я
                         h1.intro__title=name
@@ -55,7 +57,7 @@ html(lang="ru")
                         .social
                             each profile in profiles
                                 a.social__link(href=profile.link target="_blank" title=profile.prompt)
-                                    img(src=profile.icon alt=profile.prompt)
+                                    img.lazy(data-src=profile.icon alt=profile.prompt)
                         a.btn(href="#" data-modal="#modal_hire_me") Связаться
                         button.btn(type="button" data-modal="#modal_resume") Моё резюме
                 // /.intro__inner
@@ -69,7 +71,7 @@ html(lang="ru")
                         .portfolio__col
                             a(href=`/work/${index + 1}`).tdn
                                 .work
-                                    img.work__image(src=work.image alt=work.name)
+                                    img.work__image(class="lazy" data-src=work.image alt=work.name)
                                     .work__content
                                         .work__cat.text-break=`category: ${work.category}`
                                         .work__title.text-break=work.name
@@ -89,7 +91,7 @@ html(lang="ru")
                         button.btn(type="button" data-modal="#modal_resume") Моё резюме
         // Reviews
         a(href="/reviews" title="Все отзывы").tdn
-            .reviews.reviews--last
+            .reviews.reviews--last.lazy-bg(data-src="/images/reviews-bg.png")
                 .container
                     .reviews__item
                         .reviews__text
@@ -115,7 +117,7 @@ html(lang="ru")
         #modal_resume.modal
             .modal__dialog
                 button.modal__close(type="button" data-close="")
-                    img(src="images/close.svg" width="34" alt="Close")
+                    img.lazy-1sec(data-src="/images/close.svg" width="34" alt="Close")
                 .modal__content
                     h3.modal__title.text-break.resume-title.text-center Резюме
                     | !{resume}
@@ -130,8 +132,8 @@ html(lang="ru")
         #modal_hire_me.modal
             .modal__dialog.modal__dialog--sm
                 button.modal__close(type="button" data-close="")
-                    img(src="images/close.svg" width="34" alt="Close")
-                .contact
+                    img.lazy-1sec(data-src="images/close.svg" width="34" alt="Close")
+                .contact.lazy-1sec(data-src="/images/website.jpg")
                     .contact__left
                         h3.modal__title.mb-0.contact__header.text-break Связаться
                         h4.modal__subtitle.text-break Если хотите обратиться ко мне, пишите на почту:
@@ -153,5 +155,7 @@ html(lang="ru")
             // /.modal__dialog
         // /.modal
         // JS
-        script(src="js/nav.js")
-        script(src="js/index.js")
+        script(src="/js/nav.js")
+        script(src="/js/lazy.js")
+        script(src="/js/lazy-bg.js")
+        script.lazy-script(data-src="/js/index.js")
