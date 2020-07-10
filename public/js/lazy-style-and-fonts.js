@@ -7,12 +7,12 @@ $(() => {
             link.removeAttribute("data-href");
             link.removeAttribute("type");
         }
-    }, 300);
+    }, 350);
     setTimeout(() => {
         for(const link of font) {
             link.setAttribute("href", link.dataset.href);
-            link.removeAttribute("data-href")
+            link.removeAttribute("data-href");
             link.removeAttribute("type");
         }
-    }, 700);
+    }, 1000);
 });
