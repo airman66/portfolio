@@ -52,9 +52,10 @@ router.post("/add", async (req, res) => {
                     category,
                     link,
                     year,
-                    workHeading
+                    workHeading,
+                    previewImage
                 } = req.body;
-                const work = await new Work({image, name, year, description, category, workHeading, link});
+                const work = await new Work({image, name, year, description, category, workHeading, link, previewImage});
                 await work.save();
                 return res.redirect("/admin/works");
             }
@@ -101,7 +102,8 @@ router.post("/edit/:id", async (req, res) => {
                     category,
                     link,
                     year,
-                    workHeading
+                    workHeading,
+                    previewImage
                 } = req.body;
                 const works = await Work.find({});
                 await Work.findOneAndUpdate({_id: works[id - 1]._id}, {
@@ -111,7 +113,8 @@ router.post("/edit/:id", async (req, res) => {
                     category,
                     link,
                     year,
-                    workHeading
+                    workHeading,
+                    previewImage
                 });
                 return res.redirect("/admin/works");
             }

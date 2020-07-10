@@ -1,18 +1,18 @@
 $(() => {
-    const font = $(`link[type="font"]`);
-    const style = $(`link[type="style"]`);
+    const font = $(`link[link-type="font"]`);
+    const style = $(`link[link-type="style"]`);
     setTimeout(() => {
         for(const link of style) {
             link.setAttribute("href", link.dataset.href);
             link.removeAttribute("data-href");
-            link.removeAttribute("type");
+            link.removeAttribute("link-type");
         }
-    }, 350);
+    }, 500);
     setTimeout(() => {
         for(const link of font) {
             link.setAttribute("href", link.dataset.href);
             link.removeAttribute("data-href");
-            link.removeAttribute("type");
+            link.removeAttribute("link-type");
         }
     }, 1000);
 });

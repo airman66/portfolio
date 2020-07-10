@@ -21,6 +21,9 @@ html(lang="ru")
                     label(for="image") Url картинки
                     input#image.form-control(name="image" value=work.image type="text" placeholder="Введите url картинки")
                 .form-group
+                    label(for="previewImage") Url превью картинки (ширина: 370px)
+                    input#previewImage.form-control(name="previewImage" type="text" value=work.previewImage placeholder="Введите url превью")
+                .form-group
                     label(for="workHeading") Заглавие работы (которую сделали вы)
                     input#workHeading.form-control(name="workHeading" value=work.workHeading type="text" placeholder="Введите заглавие работы")
                 .form-group
