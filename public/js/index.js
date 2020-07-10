@@ -1,84 +1,45 @@
-$(function() {
-    /* Filter
-    =====================*/
-    let filter = $("[data-filter]");
+document.addEventListener("DOMContentLoaded", () => {
+    const modalCall = document.querySelectorAll(`[data-modal]`);
+    const modalClose = document.querySelectorAll(`[data-close]`);
+    const modals = document.querySelectorAll(".modal");
+    const modalDialogs = document.querySelectorAll(".modal__dialog");
 
-    filter.on("click", function(event) {
-        event.preventDefault();
-
-        let cat = $(this).data('filter');
-
-        if(cat == 'all') {
-            $("[data-cat]").removeClass("hide");
-        } else {
-            $("[data-cat]").each(function() {
-                let workCat = $(this).data('cat');
-
-                if(workCat != cat) {
-                    $(this).addClass('hide');
-                } else {
-                    $(this).removeClass('hide');
-                }
-            });
-        }
-    });
-
-
-
-
-    /* Modal
-    =====================*/
-
-    const modalCall = $("[data-modal]");
-    const modalClose = $("[data-close]");
-
-    modalCall.on("click", function(event) {
-        event.preventDefault();
-
-        let $this = $(this);
-        let modalId = $this.data('modal');
-
-        $(modalId).addClass('show');
-
-        setTimeout(function() {
-            $(modalId).find(".modal__dialog").css({
-                transform: "scale(1)"
-            });
-        }, 200);
-    });
-
-
-    modalClose.on("click", function(event) {
-        event.preventDefault();
-
-        let $this = $(this);
-        let modalParent = $this.parents('.modal');
-
-        modalParent.find(".modal__dialog").css({
-            transform: "scale(0)"
+    for (let i = 0; i < modalCall.length; i++) {
+        modalCall[i].addEventListener("click", e => {
+            e.preventDefault();
+            const modalId = modalCall[i].dataset.modal;
+            const modal = document.querySelector(`${modalId}`);
+            modal.classList.add("show");
+            setTimeout(() => {
+                modal.querySelector(".modal__dialog").style.transform = "scale(1)";
+            }, 200);
         });
+    }
 
-        setTimeout(function() {
-            modalParent.removeClass('show');
-            $("body").removeClass('no-scroll');
-        }, 200);
-    });
-
-
-    $(".modal").on("click", function(event) {
-        let $this = $(this);
-
-        $this.find(".modal__dialog").css({
-            transform: "scale(0)"
+    for (let i = 0; i < modalClose.length; i++) {
+        modalClose[i].addEventListener("click", e => {
+            e.preventDefault();
+            const modalDialog = modalClose[i].parentNode;
+            const modal = modalDialog.parentNode;
+            modalDialog.style.transform = "scale(0)";
+            setTimeout(() => {
+                modal.classList.remove("show");
+            }, 200);
         });
+    }
 
-        setTimeout(function() {
-            $this.removeClass('show');
-            $("body").removeClass('no-scroll');
-        }, 200);
-    });
+    for (let i = 0; i < modals.length; i++) {
+        modals[i].addEventListener("click", () => {
+            modals[i].querySelector(".modal__dialog").style.transform = "scale(0)";
+            setTimeout(() => {
+                modals[i].classList.remove("show");
+            }, 200);
+        });
+    }
 
-    $(".modal__dialog").on("click", function(event) {
-        event.stopPropagation();
-    });
+    for (let i = 0; i < modalDialogs.length; i++) {
+        modalDialogs[i].addEventListener("click", e => {
+            e.stopPropagation();
+        });
+    }
 });

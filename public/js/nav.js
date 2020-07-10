@@ -1,23 +1,26 @@
-$(function() {
-    /* Mobile nav */
+document.addEventListener("DOMContentLoaded", () => {
+    const navToggle = document.querySelector("#navToggle");
+    const nav = document.querySelector("#nav");
+    const navLinks = document.querySelectorAll(".nav__link");
 
-    const navToggle = $("#navToggle");
-    const nav = $("#nav");
-    const navLinks = $(".nav__link");
+    for (let i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener("click", () => {
+            nav.classList.remove("show");
+        });
+    }
 
-    navLinks.on("click", () => {
-        nav.removeClass("show");
-    });
-
-    $("body").on("click", ({target: {classList}}) => {
+    document.querySelector("body").addEventListener("click", ({target: {classList}}) => {
         if (!classList.contains("nav") && !classList.contains("burger__icon")) {
-            nav.removeClass("show");
+            nav.classList.remove("show");
         }
     });
 
-    navToggle.on("click", function(event) {
-        event.preventDefault();
-
-        nav.toggleClass("show");
+    navToggle.addEventListener("click", e => {
+        e.preventDefault();
+        if (!nav.classList.contains("show")) {
+            nav.classList.add("show");
+        } else {
+            nav.classList.remove("show");
+        }
     });
 });
