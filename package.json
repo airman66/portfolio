@@ -11,7 +11,7 @@
     "isemail": "^3.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.22",
-    "nodemailer": "^6.4.10",
+    "nodemailer": "^6.4.16",
     "pug": "^3.0.0"
   },
   "devDependencies": {
